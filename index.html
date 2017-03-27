@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+
+	<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Bootstrap 101 Template</title>
+	
+
+      
+	<link rel="stylesheet" href="css/calendar.css" media="screen">
+<link rel="stylesheet" href="css/password.css" media="screen">
+	<link rel="stylesheet" href="css/textarea.css" media="screen">
+<link rel="stylesheet" href="css/weather.css" media="screen">
+<meta name="robots" content="noindex,follow" />
+</head>
+
+<body>
+
+<h1 text-align="center">Calandar</h1>
+
+<div id="calendar"></div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui-datepicker.min.js"></script>
+<script>
+	$('#calendar').datepicker({
+		inline: true,
+		firstDay: 1,
+		showOtherMonths: true,
+		dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+	});
+</script>
+<br>
+
+ 
+ <div id="content" style="margin-top:10px;height:100%;">
+   <center><h1>Simple jQuery Password Strength Checker</h1></center>
+   <table><tbody>
+    <tr>
+     <td>
+      Username :
+     </td>
+     <td>
+      <input type="text" size="35" id="user" placeholder="Username"/>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Password :
+     </td>
+     <td>
+      <input type="password" size="35" id="pass" placeholder="Type A Password"/>
+     </td>
+    </tr>
+    <tr>
+     <td></td>
+     <td>
+      <div id="ppbar" title="Strength"><div id="pbar"></div></div>
+      <div id="ppbartxt"></div>
+     </td>
+    <tr>
+     <td>
+      Retype Password :
+     </td>
+     <td>
+      <input type="password" size="35" id="pass2" placeholder="ReType Password"/>
+     </td>
+    </tr>
+   </tbody></table>
+  </div>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="js/passchecker.js"></script>
+<br>
+
+  <div id="content" style="margin-top:10px;height:100%;">
+   <center><h1>jQuery character countdown in textarea</h1></center>
+  <form>
+  
+  <label for="textareaChars">No more than 100 characters</label>
+
+  <textarea id="textareaChars" maxlength="100"></textarea>
+  
+  <span id="chars">100</span> characters remaining
+  
+</form>
+<script type="text/javascript">
+	var maxLength = 100;
+$('textarea').keyup(function() {
+  var length = $(this).val().length;
+  var length = maxLength-length;
+  $('#chars').text(length);
+});
+</script>
+</div>
+<br>
+
+
+
+    <h1 class="text-align">weather</h1>
+          <div class="weather-box" text-align: center;>
+            <h3 id="City">City</h3>
+            <h1 id="Country">Country</h1>
+            <h5><span id="Temp">00</span><sup>o</sup>C</h5>
+
+            
+            
+           
+              <li><input type="text" placeholder="Write City Name" class="form-control"></li>
+              <li><button type="button" class="btn btn-success">
+              See Your City Weather
+            </button></li>
+            </ul>
+          </div>
+      </div>
+
+      </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
+    <script>
+      
+    $(function(){
+     $("button").click(function(){
+        var City_nm = $("input").val();
+        GoWeather(City_nm);
+     });
+
+      function GoWeather(City_nm){
+        $.ajax({
+        url:"http://api.apixu.com/v1/current.json?key=4361e04935694cfc915212001172703&q="+City_nm,
+        dataType:"json",
+        success:function(data){
+          console.log(data);
+
+          $("#City").text(data.location.name);
+          $("#Country").text(data.location.country);
+          $("#Temp").text(data.current.temp_c);
+        },
+      
+       })
+      }
+
+    });
+    </script>
+    
+
+   
+
+
+</body>
+
+</html>
